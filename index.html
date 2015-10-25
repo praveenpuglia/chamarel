@@ -3,18 +3,31 @@
     <meta charset="UTF-8">
     <title>Show Me My Colors</title>
     <link rel="stylesheet" href="style.css">
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
 </head>
 <body>
     <div class="c-container">
         <div class="links">
         </div>
         <div class="c-user-action">
-            <textarea name="colors" id="colors-input" class="c-input-color"></textarea>
+            <div class="c-user-guide">
+                <h2>What Is It ? </h2>
+                <p>It's a tool to help you give an overview of all the colors your project uses. It gives you the sorted, unique colors but differentiates when it needs to, so you can find and fix. ( eg. <code>#fff</code> vs <code>#ffffff</code> )</p>
+                <h2>How To Use It ?</h2>
+                <ul>
+                    <li>Search for colors in your project. <a href="https://github.com/praveenpuglia/show-me-my-colors">How ?</a></li>
+                    <li>Paste the colors in the box below. <strong>Each in a new line please.</strong></li>
+                    <li>Hit that damn button! Will you?</li>
+                </ul>
+                <p>It's still a Work In Progress with handful of <a href="https://github.com/praveenpuglia/show-me-my-colors">more features</a> like parsing from CSS & Hue Based Sorting to come.</p>
+            </div>
+            <textarea name="colors" id="colors-input" class="c-input-color" placeholder="#ff0                                                                rgb(23,23,78)"></textarea>
             <button type="button" class="c-btn-show" id="visualie">Show Me My Colors</button>
         </div>
         <ul class="c-colors-list"></ul>
     </div>
     <script src="show-me-my-colors.js"></script>
+    <div class="github-fork-ribbon-wrapper right-bottom"><div class="github-fork-ribbon"><a href="https://github.com/simonwhitaker/github-fork-ribbon-css">Fork me on GitHub</a></div></div>
 </body>
 </html>
