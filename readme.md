@@ -30,5 +30,21 @@ https://www.youtube.com/watch?v=9ZpdpmWjZck
 
 ### Hit <button>Show Me My Colors</button>
 
+## Build
+You need to have gulp installed in your machine. The project uses [Myth](http://myth.io) for compiling CSS. 
+```bash
+npm install
+gulp
+```
+Gulp will watch for changes in CSS file while you work. 
+
+Run it in a local server of your choice. If you have python installed, you could do:
+```bash
+python -m SimpleHTTPServer # http://localhost:8000 
+```
+
+## Contributing
+You are awesome and I would love your contribution in making this a neat tool. Check the issues tab or raise one if you want a feature.
+
 ## Thanks
 @LeaVerou for the checkerboard pattern using gradients and [for the awesome tip](https://twitter.com/praveenpuglia/status/657251040538943489) on how to achieve legible text color on any background.
