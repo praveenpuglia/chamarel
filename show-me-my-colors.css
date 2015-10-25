@@ -37,20 +37,21 @@ body {
   font-size: 1.2rem;
   background: #333;
   border: 4px solid #222;
-  line-height: 2;
-  font-family: inconsolata,"source code pro","source sans pro",consolas,monospace;
-
+  line-height: 1.5;
+  text-shadow: -1px -1px #000;
+  font-family: inconsolata, "source code pro", "source sans pro", consolas, monospace;
 }
 
 .c-btn-show {
   padding: 0.3rem 1rem;
-  font-size: 2rem;
+  font-size: 1.8rem;
   border-radius: 10rem; /* browsers calcualte the radius */
   margin-top: 1rem;
   background: linear-gradient(#555, #333);
   color: #fff;
   text-shadow: -1px -1px #333;
   border: 4px solid #222;
+  font-family: inherit;
 }
 
 .c-btn-show:active {
@@ -63,7 +64,7 @@ body {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   overflow: auto;
   max-height: 100%;
 }
@@ -82,7 +83,7 @@ body {
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
   transform-origin: left top;
   transition-timing-function: cubic-bezier(.58, .6, 0, 1.5);
-  font-family: inconsolata,"source code pro","source sans pro",consolas,monospace;
+  font-family: inconsolata, "source code pro", "source sans pro", consolas, monospace;
 }
 
 .c-colors-list li span {
