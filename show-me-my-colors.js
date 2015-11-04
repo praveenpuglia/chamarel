@@ -1,47 +1,63 @@
 (function(window, document, undefined) {
     var query = document.querySelectorAll('.c-input-color, .c-btn-show, .c-colors-list');
     var colorsInput = query[0],
-        visualizeButton = query[1],
+        showButton = query[1],
         colorsList = query[2],
-        regex = /(rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*(\d*(?:\.\d+)?)\))|(hsla?\((\d+),\s*([\d.]+)%,\s*([\d.]+)%,?\s*(\d*(?:\.\d+)?)\))|#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})/;
+        regex = {
+            "rgb" : /(rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*(\d*(?:\.\d+)?)\))/g,
+            "hex" : /(#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}))/g,
+            "hsl" : /(hsla?\((\d+),\s*([\d.]+)%,\s*([\d.]+)%,?\s*(\d*(?:\.\d+)?)\))/g
+        };
 
-    /**
-    
-        TODO:
-        - Separate the regex for each color type for different treatment.
-        - decide upon what color to use against transparent background
-    
-     */
-    
-    // colors in localStorage?
-    if(localStorage.colors && localStorage.colors !== "undefined" ){
-        colorsInput.value = localStorage.colors
+    // showMeMyColors in localStorage?
+    if (localStorage.showMeMyColors && localStorage.showMeMyColors !== "undefined") {
+        colorsInput.value = localStorage.showMeMyColors
     };
-    visualizeButton.addEventListener('click', function(e) {
+    showButton.addEventListener('click', function(e) {
         //store whatever is it textarea
-        (window.localStorage) && (localStorage.colors = colorsInput.value);
+        (window.localStorage) && (localStorage.showMeMyColors = colorsInput.value);
         //clean the list
         colorsList.innerHTML = "";
-        Array.from( new Set(colorsInput.value.split("\n")) ).sort().map(function(v) {
-            regex.test(v) && (function(){
-                var color = document.createElement("li"),
-                    colorValue = document.createElement("span");
-                color.style.color = v;
-                colorValue.textContent = v;
-                // colorValue.style.color = v;
-                color.appendChild(colorValue);
-                colorsList.appendChild(color);
-            }());
+        parseCss(colorsInput.value).map(function(v){
+            var color = document.createElement("li"),
+                colorValue = document.createElement("span");
+            color.style.color = colorValue.textContent = v;
+            color.appendChild(colorValue);
+            colorsList.appendChild(color);
         });
     });
-    colorsList.addEventListener("click", function(e){
-        if(e.target.nodeName.toLowerCase() === 'li'){
+    colorsList.addEventListener("click", function(e) {
+        if (e.target.nodeName.toLowerCase() === 'li') {
             // select the text when clicked
-            var selection = window.getSelection();            
+            var selection = window.getSelection();
             var range = document.createRange();
             range.selectNodeContents(e.target);
             selection.removeAllRanges();
             selection.addRange(range);
         }
     });
+    /*===============================
+    =            Methods            =
+    ===============================*/
+    
+    function parseCss(css){
+        var rgbColors = getColors(css,"rgb");
+        var hexColors = getColors(css,"hex");
+        var hslColors = getColors(css,"hsl");
+        return rgbColors.concat(hexColors,hslColors);
+    }
+    function getColors(css,type){
+        var m;
+        var ca = [];
+        var re = regex[type];
+        do {
+            m = re.exec(css);
+            if (m) {
+                ca.push(m[1]);
+            }
+        } while (m);
+        return Array.from( new Set( ca ) );
+    }  
+    /*=====  End of Methods  ======*/
+    
 })(window, document);
