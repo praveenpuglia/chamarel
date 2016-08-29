@@ -36,7 +36,7 @@ a:active {
 }
 
 .c-user-action {
-  width: 30%;
+  width: 25%;
   padding: 0.5rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -48,15 +48,11 @@ a:active {
   -ms-flex-direction: column;
   flex-direction: column;
   background: #333;
-  box-shadow: 10px 0 5px 0 rgba(0, 0, 0, .5);
+  box-shadow: 10px 0 5px 0 rgba(0, 0, 0, 0.5);
   color: #fff;
 }
 
 .c-user-guide {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
   text-shadow: -1px -1px #333;
 }
 
@@ -82,7 +78,7 @@ a:active {
   border: 4px solid #222;
   line-height: 1.5;
   text-shadow: -1px -1px #000;
-  font-family: inconsolata, "source code pro", "source sans pro", consolas, monospace;
+  font-family: "Mononoki", "Source Code Pro", monospace;
 }
 
 .c-btn-show {
@@ -109,7 +105,7 @@ textarea {
 }
 
 .c-colors-list {
-  width: 70%;
+  width: 75%;
   padding: 1rem;
   list-style: none;
   display: -webkit-box;
@@ -127,30 +123,36 @@ textarea {
 }
 
 .c-colors-list li {
-  width: 20vh;
-  height: 20vh;
-  background: currentColor;
-  border-radius: 0.66rem;
-  border: 4px solid #000;
+  margin: 2vh;
+  width: 25vh;
+}
+
+.c-colors-list li .color-tile {
+  width: 25vh;
+  height: 25vh;
+  margin: auto;
   text-align: center;
-  padding: .5rem;
-  margin-bottom: 1rem;
-  word-wrap: break-word;
-  cursor: pointer;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
   -webkit-transform-origin: left top;
   -ms-transform-origin: left top;
   transform-origin: left top;
   -webkit-transition-timing-function: cubic-bezier(.58, .6, 0, 1.5);
   transition-timing-function: cubic-bezier(.58, .6, 0, 1.5);
-  font-family: inconsolata, "source code pro", "source sans pro", consolas, monospace;
+  border: 2px solid #333;
 }
 
-.c-colors-list li span {
-  font-size: 1.25rem;
-  -webkit-filter: invert(100%) contrast(999) grayscale(100%);
-  filter: invert(100%) contrast(999) grayscale(100%);
-  font-weight: bold;
+.c-colors-list li .color-code {
+  font-size: 0.75rem;
+  color: #fff;
+  background: #000;
+  padding: 0.5rem;
+  /*filter: invert(100%) contrast(999) grayscale(100%);*/
+  /*Magic code but :( */
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.5);
+  word-break: break-all;
+  font-family: "Mononoki", "Source Code Pro", monospace;
 }
