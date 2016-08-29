@@ -18,16 +18,27 @@
         (window.localStorage) && (localStorage.showMeMyColors = colorsInput.value);
         //clean the list
         colorsList.innerHTML = "";
+
+        // generate the list items
         parseCss(colorsInput.value).map(function(v){
-            var color = document.createElement("li"),
+            var item = document.createElement("li"),
                 colorValue = document.createElement("span");
-            color.style.color = colorValue.textContent = v;
-            color.appendChild(colorValue);
-            colorsList.appendChild(color);
+                colorTile = document.createElement("div");
+
+            // set classes for children.
+            colorTile.classList.add("color-tile");
+            colorValue.classList.add("color-code");
+
+            // set the values 
+            colorTile.style.backgroundColor = colorValue.textContent = v;
+            item.appendChild(colorTile);
+            item.appendChild(colorValue);
+            colorsList.appendChild(item);
         });
+
     });
     colorsList.addEventListener("click", function(e) {
-        if (e.target.nodeName.toLowerCase() === 'li') {
+        if (e.target.className === 'color-code') {
             // select the text when clicked
             var selection = window.getSelection();
             var range = document.createRange();
