@@ -15,19 +15,22 @@
     };
     showButton.addEventListener('click', function(e) {
         //store whatever is it textarea
+        if(!colorsInput.value) {
+            return;
+        }
         (window.localStorage) && (localStorage.showMeMyColors = colorsInput.value);
         //clean the list
         colorsList.innerHTML = "";
         parseCss(colorsInput.value).map(function(v){
             var color = document.createElement("li"),
                 colorValue = document.createElement("span");
-            color.style.color = colorValue.textContent = v;
+            color.style.backgroundColor = colorValue.textContent = v;
             color.appendChild(colorValue);
             colorsList.appendChild(color);
         });
     });
     colorsList.addEventListener("click", function(e) {
-        if (e.target.nodeName.toLowerCase() === 'li') {
+        if (e.target.nodeName.toLowerCase() === 'li' || e.target.nodeName.toLowerCase() === 'span') {
             // select the text when clicked
             var selection = window.getSelection();
             var range = document.createRange();

@@ -2,33 +2,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Show Me My Colors</title>
-    <link rel="stylesheet" href="style.css">
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="chamarel.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
 </head>
 <body>
     <div class="c-container">
-        <div class="links">
-        </div>
         <div class="c-user-action">
             <div class="c-user-guide">
-                <h2>What Is It ?</h2>
-                <p>It's a tool to help you give an overview of all the colors your project uses. It gives you the sorted, unique colors but differentiates when it needs to, so you can find and fix. ( eg. <code>#fff</code> vs <code>#ffffff</code> )</p>
-                <h2>How To Use It ?</h2>
-                <ul>
-                    <li>Copy your project's generated CSS & paste it in the box.</li>
-                    <li>Hit that damn button! Will you?</li>
-                    <li>Your current input will be remembered when you come back!</li>
-                </ul>
-                <p>It's still a Work In Progress with handful of <a href="https://github.com/praveenpuglia/show-me-my-colors">more features</a> like <u>Hue Based Sorting</u> to come. You can also help me fix <a href="https://github.com/praveenpuglia/show-me-my-colors/issues">issues</a>.</p>
+                <h2 class="c-user-guide-title">Chamarel</h2>
+                <p>A tool to help you give an overview of all the colors your project uses. It gives you the sorted, unique colors but differentiates when it needs to, so you can find and fix duplicates & get an overview of the colors used. ( eg. <code>#fff</code> vs <code>#ffffff</code> )</p>
+                <p>Click on any color to select the code.</p>
             </div>
-            <textarea name="colors" id="colors-input" class="c-input-color" placeholder="CSS or Colors"></textarea>
-            <button type="button" class="c-btn-show">Show Me My Colors</button>
+            <textarea autofocus name="colors" id="colors-input" class="c-input-color" placeholder="Your CSS or any text that has color definitions."></textarea>
+            <button type="button" class="c-btn-show">Process!</button>
         </div>
         <ul class="c-colors-list"></ul>
     </div>
-    <script src="show-me-my-colors.js"></script>
-    <div class="github-fork-ribbon-wrapper right-bottom"><div class="github-fork-ribbon"><a href="https://github.com/praveenpuglia/show-me-my-colors">Fork me on GitHub</a></div></div>
+    <script src="chamarel.js"></script>
+    <div class="github-fork-ribbon-wrapper right-bottom"><div class="github-fork-ribbon"><a href="https://github.com/praveenpuglia/chamarel">Fork me on GitHub</a></div></div>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
